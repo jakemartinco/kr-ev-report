@@ -13,9 +13,9 @@ import datetime
 app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP],suppress_callback_exceptions = True)
 
 app.title = 'Keating Research - Denver Early Vote Tracker'
-summary_2017 = pd.read_csv('venv/counts_2017.csv')
-summary_2019 = pd.read_csv('venv/counts_2019.csv')
-summary_2021 = pd.read_csv('venv/counts_2021.csv')
+summary_2017 = pd.read_csv('counts_2017.csv')
+summary_2019 = pd.read_csv('counts_2019.csv')
+summary_2021 = pd.read_csv('counts_2021.csv')
 df = summary_2021.append([summary_2019,summary_2017])
 df.voted_date = pd.to_datetime(df.voted_date)
 df = df.replace(np.nan, '', regex=True)
